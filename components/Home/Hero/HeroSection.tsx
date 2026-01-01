@@ -34,13 +34,13 @@ export default function HeroSection() {
     ];
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8 gap-6">
             {statsData.map((item) => (
                 <div
                     key={item.id}
-                    className="rounded-xl bg-gradient-to-b from-[#111111] to-[#0a0a0a] p-6 shadow-lg border"
+                    className=" bg-[#030303] md:p-8 p-6 "
                 >
-                    <p className="text-xs tracking-widest text-gray-400 mb-3">
+                    <p className="lg:text-2xl md:text-xl text-lg font-medium leading-[150%] text-[#999]">
                         {item.title}
                     </p>
                     <h2
