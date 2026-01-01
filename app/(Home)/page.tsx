@@ -1,7 +1,14 @@
+import HeroSection from '@/components/Home/Hero/HeroSection'
 import React from 'react'
 
 export default function HomePage() {
   return (
-    <div>HomePage</div>
+    <div className='bg-[#101010]'>
+      <div className='container'>
+        <div className='lg:pt-[80px] md:pt-[60px] pt-10'>
+          <HeroSection />
+        </div>
+      </div>
+    </div>
   )
 }
