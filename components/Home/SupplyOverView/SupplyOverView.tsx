@@ -23,7 +23,7 @@ import {
 
 export const description = "A radial chart with stacked sections"
 
-const chartData = [{ month: "january", supply: 1260, emitted: 570, buybacks:340 }]
+const chartData = [{ month: "january", supply: 1260, emitted: 570, buybacks: 340 }]
 
 const chartConfig = {
     supply: {
@@ -41,75 +41,80 @@ const chartConfig = {
 } satisfies ChartConfig
 
 function ChartRadialStacked() {
-    const totalVisitors = chartData[0].supply + chartData[0].emitted 
+    const totalVisitors = chartData[0].supply + chartData[0].emitted
 
     return (
         <div>
-                <div className="flex flex-1 items-center pb-0">
-                    <ChartContainer
-                        config={chartConfig}
-                        className="mx-auto aspect-square w-full max-w-[248px]"
+            <div className="flex flex-1 items-center pb-0">
+                <ChartContainer
+                    config={chartConfig}
+                    className="mx-auto aspect-square w-full max-w-[248px]"
+                >
+                    <RadialBarChart
+                        data={chartData}
+                        endAngle={360}
+                        innerRadius={95}
+                        outerRadius={180}
                     >
-                        <RadialBarChart
-                            data={chartData}
-                            endAngle={360}
-                            innerRadius={100}
-                            outerRadius={180}
-                        >
-                            <ChartTooltip
-                                cursor={false}
-                                content={<ChartTooltipContent hideLabel />}
+                        <ChartTooltip
+                            cursor={false}
+                            content={<ChartTooltipContent hideLabel />}
+                        />
+                        <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
+                            <Label
+                                content={({ viewBox }) => {
+                                    if (viewBox && "cx" in viewBox && "cy" in viewBox) {
+                                        return (
+                                            <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle" dominantBaseline="middle">
+                                                <tspan
+                                                    x={viewBox.cx}
+                                                    y={(viewBox.cy || 0) - 15}
+                                                    className="fill-[#999] md:text-[20px] text-base font-light leading-[150%]"
+                                                >
+                                                    Total Supply
+                                                </tspan>
+                                                <tspan
+                                                    x={viewBox.cx}
+                                                    y={(viewBox.cy || 0) + 15}
+                                                    className="fill-[#EFBE84] md:text-[20px] text-base font-light leading-[150%] "
+                                                >
+                                                    {totalVisitors.toLocaleString()}ASTER
+                                                </tspan>
+                                            </text>
+                                        )
+                                    }
+                                }}
                             />
-                            <PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
-                                <Label
-                                    content={({ viewBox }) => {
-                                        if (viewBox && "cx" in viewBox && "cy" in viewBox) {
-                                            return (
-                                                <text x={viewBox.cx} y={viewBox.cy} textAnchor="middle" dominantBaseline="middle">
-                                                    <tspan
-                                                        x={viewBox.cx}
-                                                        y={(viewBox.cy || 0) - 20}
-                                                        className="fill-[#999] md:text-[20px] text-base font-light leading-[150%]"
-                                                    >
-                                                       Total Supply
-                                                    </tspan>
-                                                    <tspan
-                                                        x={viewBox.cx}
-                                                        y={(viewBox.cy || 0) + 10}
-                                                        className="fill-[#EFBE84] md:text-[20px] text-base font-light leading-[150%] "
-                                                    >
-                                                        {totalVisitors.toLocaleString()}ASTER
-                                                    </tspan>
-                                                </text>
-                                            )
-                                        }
-                                    }}
-                                />
-                            </PolarRadiusAxis>
-                            <RadialBar
-                                dataKey="supply"
-                                stackId="a"
-                                cornerRadius={5}
-                                fill="var(--color-supply)"
-                                className="stroke-transparent stroke-2"
-                            />
-                            <RadialBar
-                                dataKey="emitted"
-                                fill="var(--color-emitted)"
-                                stackId="a"
-                                cornerRadius={5}
-                                className="stroke-transparent stroke-2"
-                            />
-                            <RadialBar
-                                dataKey="buybacks"
-                                fill="var(--color-buybacks)"
-                                stackId="a"
-                                cornerRadius={5}
-                                className="stroke-transparent stroke-2"
-                            />
-                        </RadialBarChart>
-                    </ChartContainer>
-                </div>
+                        </PolarRadiusAxis>
+                        <RadialBar
+                            dataKey="supply"
+                            stackId="a"
+                            cornerRadius={10}
+                            fill="var(--color-supply)"
+                            stroke="#0A0A0A"
+                            strokeWidth={8}
+                        />
+
+                        <RadialBar
+                            dataKey="emitted"
+                            stackId="a"
+                            cornerRadius={10}
+                            fill="var(--color-emitted)"
+                            stroke="#0A0A0A"
+                            strokeWidth={8}
+                        />
+
+                        <RadialBar
+                            dataKey="buybacks"
+                            stackId="a"
+                            cornerRadius={10}
+                            fill="var(--color-buybacks)"
+                            stroke="#0A0A0A"
+                            strokeWidth={8}
+                        />
+                    </RadialBarChart>
+                </ChartContainer>
+            </div>
         </div>
     )
 }
@@ -117,7 +122,7 @@ function ChartRadialStacked() {
 export default function SupplyOverView() {
     return (
         <div>
-            <ChartRadialStacked/>
+            <ChartRadialStacked />
         </div>
     )
 }
