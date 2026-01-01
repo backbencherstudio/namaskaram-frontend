@@ -1,5 +1,6 @@
 import HeroSection from '@/components/Home/Hero/HeroSection'
 import NoteSection from '@/components/Home/NoteSection/NoteSection'
+import SupplyOverView from '@/components/Home/SupplyOverView/SupplyOverView'
 import React from 'react'
 
 export default function HomePage() {
@@ -9,9 +10,12 @@ export default function HomePage() {
         <div className='lg:py-[80px] md:py-[60px] py-10'>
           <HeroSection />
         </div>
-          <div className='pb-10'>
-            <NoteSection/>
-          </div>
+        <div className='pb-10'>
+          <NoteSection />
+        </div>
+        <div>
+          <SupplyOverView/>
+        </div>
       </div>
     </div>
   )
