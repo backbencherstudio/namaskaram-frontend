@@ -52,7 +52,10 @@ export default function HeroSection() {
                         {item.value}
                     </h2>
 
-                    <p className="lg:text-xl md:text-lg text-base leading-[150%] font-extralight text-[#999] ">
+                    <p className={`lg:text-xl md:text-lg text-base leading-[150%] font-extralight text-[#999] ${item.accent === "gold"
+                        ? "text-[#EFBE84]"
+                        : "text-[#999]"
+                        } `}>
                         {item.subValue}
                     </p>
                 </div>

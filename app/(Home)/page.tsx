@@ -5,9 +5,10 @@ export default function HomePage() {
   return (
     <div className='bg-[#101010]'>
       <div className='container'>
-        <div className='lg:pt-[80px] md:pt-[60px] pt-10'>
+        <div className='lg:py-[80px] md:py-[60px] py-10'>
           <HeroSection />
         </div>
+        
       </div>
     </div>
   )
