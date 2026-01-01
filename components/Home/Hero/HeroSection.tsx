@@ -38,21 +38,21 @@ export default function HeroSection() {
             {statsData.map((item) => (
                 <div
                     key={item.id}
-                    className=" bg-[#030303] md:p-8 p-6 "
+                    className=" bg-[#030303] md:p-8 p-6 flex flex-col gap-4"
                 >
                     <p className="lg:text-2xl md:text-xl text-lg font-medium leading-[150%] text-[#999]">
                         {item.title}
                     </p>
                     <h2
-                        className={`text-3xl font-semibold ${item.accent === "gold"
-                            ? "text-[#d6b37c]"
+                        className={`lg:text-[64px] md:text-[48px] text-[32px] font-medium leading-[130%] ${item.accent === "gold"
+                            ? "text-[#C99F6F]"
                             : "text-white"
                             }`}
                     >
                         {item.value}
                     </h2>
 
-                    <p className="text-sm text-gray-400 mt-2">
+                    <p className="lg:text-xl md:text-lg text-base leading-[150%] font-extralight text-[#999] ">
                         {item.subValue}
                     </p>
                 </div>
