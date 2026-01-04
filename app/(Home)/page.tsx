@@ -10,10 +10,10 @@ export default function HomePage() {
         <div className='lg:py-[80px] md:py-[60px] py-10'>
           <HeroSection />
         </div>
-        <div className='pb-10'>
+        <div className='lg:pb-10 pb-8'>
           <NoteSection />
         </div>
-        <div>
+        <div className='lg:py-10 py-8'>
           <SupplyOverView/>
         </div>
       </div>

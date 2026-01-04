@@ -121,9 +121,42 @@ function ChartRadialStacked() {
 
 export default function SupplyOverView() {
     return (
-        <div>
-            <ChartRadialStacked />
+        <div className="bg-[#030303] lg:p-[80px] md:p-[60px] p-10">
+            <div className='flex lg:flex-row flex-col gap-[100px] lg:items-center max-w-[924px]'>
+                <div className='shrink-0 w-[260px] h-[260px] mx-auto lg:mx-0'>
+                    <ChartRadialStacked />
+                </div>
+
+                <div className="flex items-start justify-between gap-10 flex-1">
+                    {/* Left: legend dots + labels */}
+                    <div className="space-y-5">
+                        {supplyStats.map((item) => (
+                            <div key={item.label} className="flex items-center gap-3">
+                                <span
+                                    className="h-2.5 w-2.5 rounded-full"
+                                    style={{ backgroundColor: item.color }}
+                                />
+                                <span className="text-white/80 text-sm">{item.label}</span>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Right: values */}
+                    <div className="space-y-5 text-right">
+                        {supplyStats.map((item) => (
+                            <span key={item.label} className="block text-white/80 text-sm">
+                                {item.value}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
     )
 }
+const supplyStats = [
+    { label: "Circulating Supply", value: "45.75M ASTER", color: "#F2C94C" },
+    { label: "Emitted (Q4)", value: "250.0K ASTER", color: "#2D9C93" },
+    { label: "Buybacks (Q4)", value: "-618.0K ASTER", color: "#FFFFFF" },
+];
 
