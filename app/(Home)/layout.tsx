@@ -11,7 +11,7 @@ export default function HomeLayout({ children, }: Readonly<{ children: React.Rea
             <div className=''>
                 {children}
             </div>
-            <div>
+            <div className='flex justify-center bg-[#101010] md:py-8 py-6'>
                 <Footer/>
             </div>
         </div>
