@@ -39,7 +39,7 @@ const ReuseAbleTable = <T extends TableItem>({
           isBg && "bg-white rounded-2xl  px-4 "
         } overflow-x-auto  w-full custom-scroll`}
       >
-        <div className=" lg:max-w-[calc(100vw-320px)] max-w-[calc(100vw-60px)] ">
+        <div className="  ">
           {isLoadings ? (
             <div className="">
               {/* Loading skeleton for table header */}
@@ -76,14 +76,12 @@ const ReuseAbleTable = <T extends TableItem>({
                   currentItems?.map((item, index) => (
                     <TableRow
                       key={item?.id || index}
-                      className={`text-gray-800 inter font-normal text-[14px] border-0 rounded-[16px] ${
-                        index % 2 === 0 ? "bg-white" : "bg-white"
-                      }`}
+                      className={`text-[#999] inter font-normal text-[14px] border-[#999] border-b-1 rounded-[16px] hover hover:bg-white/20 hover:text-white`}
                     >
                       {tableRowDataRenderers.map((renderFn, colIndex) => (
                         <TableCell
                           key={colIndex}
-                          className="py-3 px-4 text-[color:var(--Gray-Black-300,#777980)] text-xs font-normal leading-[normal] last:text-right"
+                          className="py-3 px-4 text-[color:var(--Gray-Black-300,#777980)]  text-xs font-normal leading-[normal] last:text-right"
                         >
                           {renderFn(item, index)}
                         </TableCell>

@@ -14,39 +14,47 @@ export default function RecentSupplyEvents() {
   const { currentItems, currentPage, totalPages, setCurrentPage } =
     useFilterPagination(relevantData, 6);
 
-  const tableHeader = ["DATE","TYPE", "AMOUNT", "NOTES", "FROM","TX"];
+  const tableHeader = ["DATE", "TYPE", "AMOUNT", "NOTES", "FROM", "TX"];
   const tableRowDataRenderers: ((
     item: TableRowItem,
     index: number
   ) => ReactNode)[] = [
       (item) => (
-        <span className="md:text-base text-sm font-semibold leading-[128%] track32 text-[#2E3135] underline">
+        <span className="text-[#999] lg:text-xl md:text-lg text-base font-normal leading-[150%]">
           {item?.date}
         </span>
       ),
       (item) => (
-        <span className="md:text-base text-sm font-semibold leading-[128%] track32 text-[#2E3135] underline">
-          {item?.type}
-        </span>
+        <div className="lg:text-xl md:text-lg text-base font-normal leading-[150%]">
+          <span className={`px-4 py-1 bg-[rgba(217,217,217,0.10)] rounded-[32px] ${item?.type === "Emission"
+            ? "text-[#2AAFA2]"
+            : item?.type === "Adjustment"
+              ? "text-[#EFBE84]"
+              : "text-[#999]"
+            }`}>{item?.type}</span>
+        </div>
       ),
       (item) => (
-        <span className="md:text-base text-sm font-semibold leading-[128%] track32 text-[#2E3135] underline">
+        <span className={`lg:text-xl md:text-lg text-base font-normal leading-[150%] ${item?.type === "Emission" ? "text-[#2AAFA2]" : item?.type === "Adjustment"
+          ? "text-[#EFBE84]"
+          : "text-[#999]"
+          }`}>
           {item?.amount}
         </span>
       ),
       (item) => (
-        <span className="md:text-base text-sm font-semibold leading-[128%] track32 text-[#2E3135] underline">
+        <span className="text-[#999] lg:text-xl md:text-lg text-base font-normal leading-[150%]">
           {item?.title}
         </span>
       ),
       (item) => (
-        <span className="md:text-base text-sm font-semibold leading-[128%] track32 text-[#2E3135] underline">
+        <span className="text-[#999] lg:text-xl md:text-lg text-base font-normal leading-[150%] ">
           {item?.tx}
         </span>
       ),
       (item) => (
-        <span className="md:text-base text-sm font-semibold leading-[128%] track32 text-[#2E3135] underline">
-          <TxshareIcon/>
+        <span className="md:text-base cursor-pointer text-sm font-semibold leading-[128%] track32 text-[#999] flex justify-end ">
+          <TxshareIcon />
         </span>
       ),
     ];
@@ -65,6 +73,7 @@ export default function RecentSupplyEvents() {
         />
 
       </div>
+      <a href='#' className='text-[#EFBE84] flex justify-center lg:pt-8 pt-6 lg:text-xl md:text-lg text-base font-normal leading-[150%] underline underline-offset-3'>View more on ASTER</a>
     </div>
   )
 }
@@ -77,16 +86,16 @@ const relevantData = [
     token: "ASTER",
     title: "Weekly buyback #12",
     tx: "0x1a2b3c",
-    link:"#"
+    link: "#"
   },
   {
     date: "Dec 28, 2024",
     type: "Emission",
-    amount: 50000,
+    amount: +50000,
     token: "ASTER",
     title: "Staking rewards distribution",
     tx: "0x4d5e6f",
-    link:"#"
+    link: "#"
   },
   {
     date: "Dec 25, 2024",
@@ -95,24 +104,24 @@ const relevantData = [
     token: "ASTER",
     title: "Weekly buyback #11",
     tx: "0x7g8h9i",
-    link:"#"
+    link: "#"
   },
   {
     date: "Dec 23, 2024",
     type: "Emission",
-    amount: 75000,
+    amount: +75000,
     token: "ASTER",
     title: "Team vesting unlock",
     tx: "0xj0k1l2",
-    link:"#"
+    link: "#"
   },
   {
     date: "Dec 20, 2024",
     type: "Adjustment",
-    amount: 15000,
+    amount: +15000,
     token: "ASTER",
     title: "Token migration correction",
     tx: "0xm3n4o5",
-    link:"#"
+    link: "#"
   },
 ];

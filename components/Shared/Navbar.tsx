@@ -9,7 +9,7 @@ export default function Navbar() {
                     <img src="/logo.png" alt="" className='w-[151px] h-[40px]' />
                 </div>
                 <div className=''>
-                    <button className='bg-[#EFBE84] flex gap-2 md:p-3 p-2 text-[#101010] md:text-base text-sm leading-[150%] font-light'>
+                    <button className='bg-[#EFBE84] cursor-pointer flex gap-2 md:p-3 p-2 text-[#101010] md:text-base text-sm leading-[150%] font-light'>
                         Buy ASTER
                         <span><ArrowIcons/></span>
                     </button>
