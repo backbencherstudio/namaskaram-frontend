@@ -1,5 +1,6 @@
 import HeroSection from '@/components/Home/Hero/HeroSection'
 import NoteSection from '@/components/Home/NoteSection/NoteSection'
+import RecentSupplyEvents from '@/components/Home/RecentSupplyEvents/RecentSupplyEvents'
 import SupplyOverView from '@/components/Home/SupplyOverView/SupplyOverView'
 import React from 'react'
 
@@ -15,6 +16,9 @@ export default function HomePage() {
         </div>
         <div className='lg:py-10 py-8'>
           <SupplyOverView/>
+        </div>
+        <div className='lg:py-10 py-8'>
+          <RecentSupplyEvents/>
         </div>
       </div>
     </div>
