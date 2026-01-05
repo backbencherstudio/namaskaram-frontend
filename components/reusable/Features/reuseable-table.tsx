@@ -58,13 +58,13 @@ const ReuseAbleTable = <T extends TableItem>({
               <TableCaption></TableCaption>
               <TableHeader className="text-[#0CAF60]  text-sm px-4 !py-3  font-normal leading-[140%] tracking-[0.07px] ">
                 <TableRow
-                  className="!border-b-0 !rounded-none bg-[#F6F8FA] hover:bg-[#F6F8FA]/90"
+                  className="!border-b-0 !rounded-none bg-[#101010] hover:bg-[#101010]/20"
                   // style={{ borderRadius: "40px" }}
                 >
                   {tableHeader.map((header: string, index: number) => (
                     <TableHead
                       key={index}
-                      className="px-4 !py-3 text-sm  font-normal leading-[144%] text-[#4A4C56] last:text-right"
+                      className="px-4 !py-3 text-sm  font-normal leading-[144%] text-[#fff] last:text-right"
                     >
                       {header}
                     </TableHead>
