@@ -21,6 +21,15 @@ export async function GET() {
 
     const data = await res.json();
 
-    return NextResponse.json(data);
+      return NextResponse.json({
+    price: data.market_data.current_price.usd,
+    marketCap: data.market_data.market_cap.usd,
+    circulatingSupply: data.market_data.circulating_supply,
+    totalSupply: data.market_data.total_supply,
+    maxSupply: data.market_data.max_supply,
+    volume24h: data.market_data.total_volume.usd,
+    change24h: data.market_data.price_change_percentage_24h,
+    lastUpdated: data.last_updated,
+  });
 
 }
