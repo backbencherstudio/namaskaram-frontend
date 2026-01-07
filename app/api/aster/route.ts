@@ -12,7 +12,7 @@ export async function GET() {
             accept: "application/json",
             "x-cg-demo-api-key": apiKey || "",
         },
-        next: { revalidate: 60 },
+          next: { revalidate: 43200 },
     })
 
     if (!res.ok) {
