@@ -85,8 +85,8 @@ const relevantData = [
     amount: -125000,
     token: "ASTER",
     title: "Weekly buyback #12",
-    tx: "0x1a2b3c",
-    link: "#"
+    tx: "0x000Ae314E2A2172a039B26378814C252734f556A",
+    link: "https://bscscan.com/tx/"
   },
   {
     date: "Dec 28, 2024",
