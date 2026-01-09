@@ -4,6 +4,7 @@ import TxshareIcon from '@/components/Icons/TxshareIcon';
 import ReuseAbleTable from '@/components/reusable/Features/reuseable-table';
 import { useFilterPagination } from '@/hooks/useFilterHook';
 import { TableRowItem } from '@/types/TableRowItem';
+import Link from 'next/link';
 import React, { ReactNode } from 'react'
 
 export default function RecentSupplyEvents() {
@@ -49,13 +50,13 @@ export default function RecentSupplyEvents() {
       ),
       (item) => (
         <span className="text-[#999] lg:text-xl md:text-lg text-base font-normal leading-[150%] truncate block max-w-[140px]">
-  {item?.tx || "-"}
-</span>
+          {item?.tx || "-"}
+        </span>
       ),
       (item) => (
-        <span className="md:text-base cursor-pointer text-sm font-semibold leading-[128%] track32 text-[#999] flex justify-end ">
+        <Link href={item?.link} className="md:text-base cursor-pointer text-sm font-semibold leading-[128%] track32 text-[#999] flex justify-end ">
           <TxshareIcon />
-        </span>
+        </Link>
       ),
     ];
 
